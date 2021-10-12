@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Converter</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" sizes="16x16" href="/images/iconSite.svg" type="image/x-icon">
+</head>
+<body>
+    <header class="header">
+      <div class="logo"> <img src="/images/logo.svg" alt="logo"> </div>
+      <div class="menu">
+        <ul class="mainMenu">
+          <li>БАНК</li>
+          <li>БИЗНЕС</li>
+          <li>ИНВЕСТИЦИИ</li>
+          <li>СТРАХОВАНИЕ</li>
+          <li>МОБАЙЛ</li>
+          <li>ПУТЕШЕСТВИЯ</li>
+          <li>РАЗВЛЕЧЕНИЯ</li>
+        </ul>
+      </div>
+      <button class="btnSignIn">ВОЙТИ</button>
+    </header>
+
+    <main>
+      <h2>Конвертер валют онлайн</h2>
+      <div class="convert">
+        <div class="haveBills changeBlock">
+          <p class="p pname">У меня есть</p>
+          <div class="currency-div">
+            <ul class="currency">
+              <li><button id="btnhaveBillsRUB" class="btnCurrency p btnSolid">RUB</button></li>
+              <li><button id="btnhaveBillsUSD" class="btnCurrency p btnSolid">USD</button></li>
+              <li><button id="btnhaveBillsEUR" class="btnCurrency p btnSolid">EUR</button></li>
+              <li><button id="btnhaveBillsGBP" class="btnCurrency p">GBP</button></li>
+            </ul>
+          </div>
+          <div class="amount-div">
+            <input id="amountAdd" type="text" placeholder="0" >
+            <p class="p pconvert" id="haveBills-p"></p>
+          </div>
+        </div>
+        <div class="changeBills changeBlock">
+          <p class="p pname">Хочу приобрести</p>
+          <div class="currency-div">
+            <ul class="currency">
+              <li><button id="btnChangeRUB" class="btnCurrency p btnSolid">RUB</button></li>
+              <li><button id="btnChangeUSD" class="btnCurrency p btnSolid">USD</button></li>
+              <li><button id="btnChangeEUR" class="btnCurrency p btnSolid">EUR</button></li>
+              <li><button id="btnChangeGBP" class="btnCurrency p">GBP</button></li>
+            </ul>
+          </div>
+          <div class="amount-div">
+            <input id="amountChange" type="text" placeholder="0">
+            <p class="p pconvert" id="changeBills-p"></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>

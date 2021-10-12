@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+.header {
+  height: 50px;
+  width: auto;
+  background: #F5F5F6;
+  display: flex;
+  justify-content:start;
+}
+
+.logo {
+  padding-top: 15px;
+  padding-left: 100px;
+}
+
+.menu {
+  margin-top: 20px;
+}
+
+.mainMenu {
+  display: flex;
+  justify-content: space-between;
+  width: 630px;
+  margin-left: 64px;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.mainMenu li {
+  list-style-type: none;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  letter-spacing: 0.06em;
+  color: #959BA4;
+  cursor: pointer;
+}
+
+.mainMenu li:hover {
+  color: #000000;
+}
+
+.btnSignIn {
+  width: 58px;
+  height: 33px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.06em;
+  color: #000000;
+  background: #FFFFFF;
+  border-radius: 4px; 
+  border: 0;
+  margin-left: 109px;
+  margin-top: 9px;
+  cursor: pointer;
+}
+
+main {
+  padding-left: 253px;
+  margin-top: 56px;
+  margin-bottom: 33px;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  color: #000000;
+}
+
+.convert {
+  display:flex;
+}
+
+.changeBlock {
+  width: 259px;
+  margin-right: 123px;
+}
+
+.p {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.pname {
+  color: #9F9F9F;
+}
+
+.currency {
+  display: flex;
+  padding-left: 0;
+  border: 1px solid #E5E5E5;
+  border-radius: 3px;
+}
+
+.currency li {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnCurrency {
+  border: 0;
+  color: #C6C6C6;
+  background-color: #FFFFFF;
+  height: 30px;
+  width: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+}
+  
+.btnSolid {
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.amount-div {
+  width: 259px;
+  height: 102px;
+  border: 1px solid #E5E5E5;
+  border-radius: 3px;
+}
+
+#amountAdd, #amountChange {
+  -webkit-appearance: none; 
+  border: 0;
+  width: 230px;
+  height: 38px;
+  margin-top: 11px;
+  margin-left: 14px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  color: #000000;
+  appearance: none;
+  -moz-appearance: textfield;
+  outline: none;
+}
+
+.pconvert {
+  color: #C6C6C6;
+  margin-top: 20px;
+  margin-left: 16px;
+}
+
+.active {
+  background-color: #833AE0;
+  color: #FFFFFF;
+}
