@@ -45,8 +45,7 @@ async function bills(cur1, cur2) {
   }else{
    inputHave.value = parseFloat((+(inputChange.value) * result2.rates[cur1])).toFixed(2); 
   }
-}
-
+};
 
 let cur1 = 'RUB', cur2 = 'USD';
 btnChangeUSD.classList.add('active');
@@ -158,3 +157,4 @@ function changeFlag(newFlagBoolean){
 }
 
 bills(cur1, cur2);
+bills(cur1, cur2).catch(alert);
