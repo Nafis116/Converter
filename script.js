@@ -12,6 +12,7 @@ let changeBillsP = document.getElementById('changeBills-p');
     inputChange = document.getElementById('amountChange');
     flag = true;
 
+inputHave.value = '1';
 async function bills(cur1, cur2) {
   var response = await fetch(`https://api.exchangerate.host/latest?base=${cur1}&symbols=${cur2}`);
   var data = await response.json();
