@@ -8,39 +8,48 @@ let changeBillsP = document.getElementById('changeBills-p');
     btnhaveBillsUSD = document.getElementById('btnhaveBillsUSD');
     btnhaveBillsEUR = document.getElementById('btnhaveBillsEUR');
     btnhaveBillsGBP = document.getElementById('btnhaveBillsGBP');
-    inputHave = document.getElementById('amountAdd');
+    inputHave = document.getElementById('amountHave');
     inputChange = document.getElementById('amountChange');
+    flag = true;
 
 async function bills(cur1, cur2) {
-  let response = await fetch(`https://api.exchangerate.host/latest?base=${cur1}&symbols=${cur2}`);
-  let data = await response.json();
-  let result = await data;
+  var response = await fetch(`https://api.exchangerate.host/latest?base=${cur1}&symbols=${cur2}`);
+  var data = await response.json();
+  var result = await data;
   haveBillsP.innerHTML = `1 ${cur1} = ${result.rates[cur2].toFixed(4)} ${cur2}`;
-
+  
   inputHave.addEventListener('input', () => {
-    if ((inputHave.value == '') || (inputHave.value == '0') || (inputHave.value == ' ' > 1)) {
+    if ((inputHave.value == '') || (inputHave.value == '0') || (inputHave.value == ' ' > 1) || (isNaN(inputHave.value))) {
       inputChange.value = ''
     } else {
-      inputChange.value = (parseFloat(inputHave.value) / result2.rates[cur1]).toFixed(2);
+      inputChange.value = parseFloat((+(inputHave.value) * result.rates[cur2])).toFixed(2); 
     }
   })
-
-  let response2 = await fetch(`https://api.exchangerate.host/latest?base=${cur2}&symbols=${cur1}`);
-  let data2 = await response2.json();
-  let result2 = await data2;
+  
+  var response2 = await fetch(`https://api.exchangerate.host/latest?base=${cur2}&symbols=${cur1}`);
+  var data2 = await response2.json();
+  var result2 = await data2;
   changeBillsP.innerHTML = `1 ${cur2} = ${result2.rates[cur1].toFixed(4)} ${cur1}`;
-
+  
   inputChange.addEventListener('input', () => {
-    if ((inputChange.value == '') || (inputChange.value == '0') || (inputChange.value == ' ' > 1)) {
+    if ((inputChange.value == '') || (inputChange.value == '0') || (inputChange.value == ' ' > 1) || (isNaN(inputChange.value))) {
       inputHave.value = ''
     } else {
-      inputHave.value = (parseFloat(inputChange.value) / result.rates[cur2]).toFixed(2);
+      inputHave.value = parseFloat((+(inputChange.value) * result2.rates[cur1])).toFixed(2);
     }
   })
+
+  if(flag===true){
+   inputChange.value = parseFloat((+(inputHave.value) * result.rates[cur2])).toFixed(2); 
+  }else{
+   inputHave.value = parseFloat((+(inputChange.value) * result2.rates[cur1])).toFixed(2); 
+  }
 }
 
 
 let cur1 = 'RUB', cur2 = 'USD';
+btnChangeUSD.classList.add('active');
+btnhaveBillsRUB.classList.add('active');
 
   btnChangeRUB.addEventListener('click', (e) => {
     if (e.target.id == 'btnChangeRUB') {
@@ -49,7 +58,7 @@ let cur1 = 'RUB', cur2 = 'USD';
       btnChangeUSD.classList.remove('active');
       btnChangeEUR.classList.remove('active');
       btnChangeGBP.classList.remove('active');
-    }
+    }    
     bills(cur1, cur2);
   });
 
@@ -133,11 +142,18 @@ let cur1 = 'RUB', cur2 = 'USD';
 inputHave.addEventListener('keyup', () => {
   inputHave.value = inputHave.value.replace(/[A-Za-zА-Яа-яЁё]/g,'');
   inputHave.value = inputHave.value.replace(/[,]/g, '.');
+  changeFlag(true);
 });
 
 inputChange.addEventListener('keyup', () => {
   inputChange.value = inputChange.value.replace(/[A-Za-zА-Яа-яЁё]/g,'');
   inputChange.value = inputChange.value.replace(/[,]/g, '.');
+  changeFlag(false);
 });
+
+function changeFlag(newFlagBoolean){
+  flag=newFlagBoolean;
+  bills(cur1, cur2);
+}
 
 bills(cur1, cur2);
